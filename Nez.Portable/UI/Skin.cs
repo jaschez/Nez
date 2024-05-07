@@ -107,7 +107,7 @@ namespace Nez.UI
 			var progressBarStyle = new ProgressBarStyle
 			{
 				Background = new PrimitiveDrawable(14, barBg),
-				KnobBefore = new PrimitiveDrawable(14, barKnobOver)
+				DisabledKnobBefore = new PrimitiveDrawable(14, barKnobOver)
 			};
 			skin.Add("default", progressBarStyle);
 
