@@ -217,7 +217,7 @@ namespace Nez.Systems
 					return aseFile;
 			}
 
-			var asepriteFile = AsepriteFileLoader.Load(name);
+			var asepriteFile = AsepriteFileLoader.Load(name, true);
 			LoadedAssets.Add(name, asepriteFile);
 			return asepriteFile;
 		}

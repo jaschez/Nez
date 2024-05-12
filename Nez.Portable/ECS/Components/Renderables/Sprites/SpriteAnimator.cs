@@ -150,8 +150,11 @@ namespace Nez.Sprites
 		/// <summary>
 		/// adds all the animations from the SpriteAtlas
 		/// </summary>
-		public SpriteAnimator AddAnimationsFromAtlas(SpriteAtlas atlas)
+		public SpriteAnimator AddAnimationsFromAtlas(SpriteAtlas atlas, bool removePrevious=false)
 		{
+			if(removePrevious)
+				_animations.Clear();
+
 			for (var i = 0; i < atlas.AnimationNames.Length; i++)
 				_animations.Add(atlas.AnimationNames[i], atlas.SpriteAnimations[i]);
 			return this;
