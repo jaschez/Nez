@@ -19,11 +19,11 @@
 	</PropertyGroup>
 
 	<PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-		<DefineConstants>TRACE;DEBUG;FNA</DefineConstants>
+		<DefineConstants>TRACE;DEBUG;FNA;FNA_GCHANDLE</DefineConstants>
 	</PropertyGroup>
 
 	<PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-		<DefineConstants>FNA</DefineConstants>
+		<DefineConstants>FNA;FNA_GCHANDLE</DefineConstants>
 	</PropertyGroup>
 
     <ItemGroup>
