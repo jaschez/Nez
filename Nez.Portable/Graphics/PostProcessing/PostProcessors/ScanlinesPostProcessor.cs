@@ -1,4 +1,6 @@
-﻿namespace Nez
+﻿using System;
+
+namespace Nez
 {
 	public class ScanlinesPostProcessor : PostProcessor<ScanlinesEffect>
 	{
@@ -10,6 +12,8 @@
 		{
 			base.OnAddedToScene(scene);
 			Effect = _scene.Content.LoadNezEffect<ScanlinesEffect>();
+			Effect.LinesFactor = 500f;
+			Effect.Attenuation = 0.02f;
 		}
 
 		public override void Unload()
