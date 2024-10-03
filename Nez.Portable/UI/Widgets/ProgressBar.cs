@@ -373,6 +373,7 @@ namespace Nez.UI
 		{
 			var knobBefore = new PrimitiveDrawable(knobBeforeColor);
 			knobBefore.MinHeight = 10;
+			knobBefore.MinWidth = 10;
 
 			var knobAfter = new PrimitiveDrawable(knobAfterColor);
 			knobAfter.MinWidth = knobAfter.MinHeight = 10;

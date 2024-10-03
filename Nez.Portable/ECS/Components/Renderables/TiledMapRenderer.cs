@@ -9,7 +9,7 @@ namespace Nez
 	{
 		public TmxMap TiledMap;
 
-		public int PhysicsLayer = 1 << 0;
+		public int PhysicsLayer = 1 << 1;
 
 		/// <summary>
 		/// if null, all layers will be rendered
