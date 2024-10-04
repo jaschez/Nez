@@ -15,19 +15,20 @@ namespace Nez.AI.FSM
 
 		protected State<T> _currentState;
 		protected T _context;
-		Dictionary<Type, State<T>> _states = new Dictionary<Type, State<T>>();
+		protected Dictionary<Type, State<T>> _states = new Dictionary<Type, State<T>>();
 
 
-		public StateMachine(T context, State<T> initialState)
+		public StateMachine(T context)
 		{
 			_context = context;
-
-			// setup our initial state
-			AddState(initialState);
-			_currentState = initialState;
-			_currentState.Begin();
 		}
 
+		public void Start(Type initialState)
+		{
+			// setup our initial state
+			_currentState = _states[initialState];
+			_currentState.Begin();
+		}
 
 		/// <summary>
 		/// adds the state to the machine
@@ -69,7 +70,7 @@ namespace Nez.AI.FSM
 		{
 			// avoid changing to the same state
 			if (_currentState.GetType() == newType)
-				return _currentState as State<T>;
+				return _currentState;
 
 			// only call end if we have a currentState
 			if (_currentState != null)
@@ -84,11 +85,14 @@ namespace Nez.AI.FSM
 			_currentState = _states[newType];
 			_currentState.Begin();
 
+			return _currentState;
+		}
+
+		protected void FireOnStateChanged()
+		{
 			// fire the changed event if we have a listener
 			if (OnStateChanged != null)
 				OnStateChanged();
-
-			return _currentState as State<T>;
 		}
 
 		/// <summary>
@@ -105,7 +109,7 @@ namespace Nez.AI.FSM
 		public State<T> ChangeToPreviousState()
 		{
 			if (PreviousState == null)
-				return _currentState as State<T>;
+				return _currentState;
 
 			return ChangeState(PreviousState.GetType());
 		}
