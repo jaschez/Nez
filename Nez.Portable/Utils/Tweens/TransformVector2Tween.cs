@@ -28,29 +28,30 @@ namespace Nez.Tweens
 
 		public void SetTweenedValue(Vector2 value)
 		{
-			switch (_targetType)
-			{
-				case TransformTargetType.Position:
-					_transform.Position = value;
-					break;
-				case TransformTargetType.LocalPosition:
-					_transform.LocalPosition = value;
-					break;
-				case TransformTargetType.Scale:
-					_transform.Scale = value;
-					break;
-				case TransformTargetType.LocalScale:
-					_transform.LocalScale = value;
-					break;
-				case TransformTargetType.RotationDegrees:
-					_transform.RotationDegrees = value.X;
-					break;
-				case TransformTargetType.LocalRotationDegrees:
-					_transform.LocalRotationDegrees = value.X;
-					break;
-				default:
-					throw new System.ArgumentOutOfRangeException();
-			}
+			if(_transform != null)
+				switch (_targetType)
+				{
+					case TransformTargetType.Position:
+						_transform.Position = value;
+						break;
+					case TransformTargetType.LocalPosition:
+						_transform.LocalPosition = value;
+						break;
+					case TransformTargetType.Scale:
+						_transform.Scale = value;
+						break;
+					case TransformTargetType.LocalScale:
+						_transform.LocalScale = value;
+						break;
+					case TransformTargetType.RotationDegrees:
+						_transform.RotationDegrees = value.X;
+						break;
+					case TransformTargetType.LocalRotationDegrees:
+						_transform.LocalRotationDegrees = value.X;
+						break;
+					default:
+						throw new System.ArgumentOutOfRangeException();
+				}
 		}
 
 

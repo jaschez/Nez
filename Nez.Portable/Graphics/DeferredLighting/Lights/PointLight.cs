@@ -17,7 +17,7 @@ namespace Nez.DeferredLighting
 				{
 					// the size of the light only uses the x scale value
 					var size = Radius * Entity.Transform.Scale.X * 2;
-					_bounds.CalculateBounds(Entity.Transform.Position, _localOffset, _radius * Entity.Transform.Scale,
+					_bounds.CalculateBounds(Entity.Transform.Position, _localOffset, Radius * Entity.Transform.Scale,
 						Vector2.One, 0, size, size);
 					_areBoundsDirty = false;
 				}
@@ -34,20 +34,16 @@ namespace Nez.DeferredLighting
 		/// <summary>
 		/// how far does this light reaches
 		/// </summary>
-		public float Radius => _radius;
+		public float Radius = 1;
 
 		/// <summary>
 		/// brightness of the light
 		/// </summary>
 		public float Intensity = 3f;
 
-
-		protected float _radius;
-
-
 		public PointLight()
 		{
-			SetRadius(400f);
+			SetRadius(1f);
 		}
 
 
@@ -71,7 +67,7 @@ namespace Nez.DeferredLighting
 		/// <param name="radius">Radius.</param>
 		public PointLight SetRadius(float radius)
 		{
-			_radius = radius;
+			Radius = radius;
 			_areBoundsDirty = true;
 			return this;
 		}

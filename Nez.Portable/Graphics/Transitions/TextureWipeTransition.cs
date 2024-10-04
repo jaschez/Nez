@@ -55,7 +55,7 @@ namespace Nez
 		/// <summary>
 		/// duration for the wind transition
 		/// </summary>
-		public float Duration = 1f;
+		public float Duration = 3f;
 
 		/// <summary>
 		/// ease equation to use for the animation
