@@ -193,7 +193,7 @@ namespace Nez.Sprites
 		public SpriteAnimator AddAnimationsFromAtlas(SpriteAtlas atlas, bool removePrevious=false)
 		{
 			if(removePrevious)
-				_animations.Clear();
+				Animations.Clear();
 
 			for (var i = 0; i < atlas.AnimationNames.Length; i++)
 				Animations.Add(atlas.AnimationNames[i], atlas.SpriteAnimations[i]);
